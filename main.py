@@ -151,3 +151,23 @@ sample_vector = vectorizer.transform([sample_email])
 prediction = model.predict(sample_vector)[0]
 print(f"\nSample email:\n{sample_email[:200]}...")  # show first 200 chars
 print(f"Prediction: {'Spam' if prediction == 1 else 'Not Spam'}")
+
+
+# -----------------------------
+# Step 11: User Input (OPTIONAL)
+# -----------------------------
+print("\n--- Test Your Own Email ---")
+print("Note: For Terminal, please paste your email as a single paragraph without newline characters.\n")
+user_input = input("Paste an email here to check if it's Spam (or press Enter to skip):\n")
+
+if user_input.strip():  # only proceed if user actually entered text
+    # Preprocess the email (numbers & URLs)
+    processed_input = preprocess_email(user_input)
+    # Vectorize
+    input_vector = vectorizer.transform([processed_input])
+    # Predict
+    prediction = model.predict(input_vector)[0]
+    print(f"\nYour email is predicted as: {'Spam' if prediction == 1 else 'Not Spam'}")
+else:
+    print("No input provided. Skipping custom email prediction.")
+
