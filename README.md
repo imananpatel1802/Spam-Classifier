@@ -81,3 +81,6 @@ The dataset consists of **raw email text** from the [Apache SpamAssassin Public 
 2. Install dependencies:
    pip install -r requirements.txt
 3. python main.py or py main.py
+
+## Custom Email Testing
+Paste your email as a single paragraph (avoid pressing Enter inside the email).
